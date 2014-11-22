@@ -20,6 +20,9 @@
                 ],
             }],
             ['OS=="ios"', {
+                'defines': [
+                    'IOS',
+                ],
                 'xcode_settings': {
                     'SDKROOT': 'iphoneos',
                     'TARGETED_DEVICE_FAMILY': '1,2',
