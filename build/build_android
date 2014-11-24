@@ -1,0 +1,31 @@
+#!/bin/sh
+# 
+# NOTE: The Android build of GYP is for Android OS build system.
+# If you want to use in NDK, do some modify:
+#   1. Remove the ".../base_rules.mk" line in none type target that been dependent.
+#   2. The Alias of target is for Android OS build. If use NDK, We should change the LOCAL_MODULE name.
+
+HERE=$(dirname $0)
+source ${HERE}/setup_env
+
+#################### GYP_DEFINES ####
+DEFINES=" library=shared_library
+          os_posix=1
+          OS=android
+          target_arch=arm
+          clang=0
+          component=static_library
+          use_system_stlport=0
+          platform_root=${ANDROID_HOME}/jni
+        "
+
+# Off we go.
+ANDROID_BUILD_TOP=`pwd` GYP_DEFINES=${DEFINES} GYP_GENERATORS=android-make gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi ${LIBDIR}/*.gyp $*
+
+# Rename the library name
+ls ${LIBDIR}/*.target.mk | while read p; do
+    f=${p##*/}
+    name=${f%%.*}
+    echo "Rename '$f'"
+    sed -i '' "s/[^ ]*lib_${name}_gyp/${name}/" $p
+done

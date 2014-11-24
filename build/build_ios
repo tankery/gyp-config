@@ -1,0 +1,14 @@
+#!/bin/bash
+
+HERE=$(dirname $0)
+source ${HERE}/setup_env
+
+#################### GYP_DEFINES ####
+DEFINES=" library=shared_library
+          OS=ios
+          component=static_library
+          platform_root=${IOS_MAC_HOME}
+        "
+
+# Off we go.
+GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi ${LIBDIR}/*.gyp -f xcode $*

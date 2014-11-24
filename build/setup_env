@@ -1,0 +1,10 @@
+#!/bin/sh
+
+HERE=$(dirname $0)
+GYP_CONFIG=${HERE}/..
+LIBDIR=${GYP_CONFIG}/..
+ROOT=${LIBDIR}/..
+
+ANDROID_HOME=${LIBDIR}/android
+IOS_MAC_HOME=${LIBDIR}/ios_mac
+TEST_HOME=${LIBDIR}/test

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm -rf assets/ bin/ gen/ libs/ obj/ .project .cproject .settings/ .classpath
