@@ -10,4 +10,4 @@ DEFINES=" library=static_library
         "
 
 # Off we go.
-GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi ${TEST_HOME}/*.gyp $*
+GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi $*

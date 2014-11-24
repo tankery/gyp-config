@@ -11,4 +11,4 @@ DEFINES=" library=shared_library
         "
 
 # Off we go.
-GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi ${LIBDIR}/*.gyp -f xcode $*
+GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi -f xcode $*
