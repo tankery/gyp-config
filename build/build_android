@@ -10,12 +10,8 @@ source ${HERE}/setup_env
 
 #################### GYP_DEFINES ####
 DEFINES=" library=shared_library
-          os_posix=1
-          OS=android
-          target_arch=arm
-          clang=0
           component=static_library
-          use_system_stlport=0
+          OS=android
           platform_root=${ANDROID_HOME}/jni
         "
 

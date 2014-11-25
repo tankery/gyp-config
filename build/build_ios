@@ -5,8 +5,8 @@ source ${HERE}/setup_env
 
 #################### GYP_DEFINES ####
 DEFINES=" library=shared_library
-          OS=ios
           component=static_library
+          OS=ios
           platform_root=${IOS_MAC_HOME}
         "
 

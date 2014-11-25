@@ -1,5 +1,10 @@
 {
 
+    'variables' : {
+        'ndk_root': '<!(echo $NDK_ROOT)',
+        'ndk_ver': '4.6',
+    },
+
     'target_defaults': {
         # Things get confused if multiple targets in the same .gyp file don't have the same configuration
         # names, so define them all here.  (this problem doesn't appear to exist across .gyp files,
@@ -12,11 +17,19 @@
             },
         },
 
+        'cflags': [
+            '-Wall', '-Wno-unused-parameter',
+        ],
+
         'conditions': [
             ['OS=="android"', {
                 'defines': [
                     'ANDROID',
                     '__ANDROID__',
+                ],
+
+                'cflags': [
+                    '-fno-exceptions',
                 ],
             }],
             ['OS=="ios"', {
@@ -28,6 +41,7 @@
                     'TARGETED_DEVICE_FAMILY': '1,2',
                     'CODE_SIGN_IDENTITY': 'iPhone Developer',
                     'IPHONEOS_DEPLOYMENT_TARGET': '7.1',
+                    'OTHER_CPLUSPLUSFLAGS' : ['-fno-exceptions'],
                     'OTHER_LDFLAGS': [
                         '-ObjC',
                     ],

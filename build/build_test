@@ -7,7 +7,8 @@ source ${HERE}/setup_env
 DEFINES=" library=static_library
           component=static_library
           OS=linux
+          platform=darwin
         "
 
 # Off we go.
-GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi $*
+GYP_DEFINES=${DEFINES} gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi -f xcode $*
