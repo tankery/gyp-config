@@ -1,9 +1,12 @@
 #!/bin/sh
 
+# TODO:
+# This is just a quick & dirty build script.
+# try to build android/ios/test type target by parameters.
 HERE=$(dirname $0)
 GYP_CONFIG=${HERE}/..
-LIBDIR=${GYP_CONFIG}/..
-ROOT=${LIBDIR}/..
+ROOT=${GYP_CONFIG}/..
+LIBDIR=${ROOT}/plt_lib
 
 ANDROID_HOME=${LIBDIR}/android
 IOS_MAC_HOME=${LIBDIR}/ios_mac
