@@ -7,7 +7,3 @@ HERE=$(dirname $0)
 GYP_CONFIG=${HERE}/..
 ROOT=${GYP_CONFIG}/..
 LIBDIR=${ROOT}/plt_lib
-
-ANDROID_HOME=${LIBDIR}/android
-IOS_MAC_HOME=${LIBDIR}/ios_mac
-TEST_HOME=${LIBDIR}/test

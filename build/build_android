@@ -1,5 +1,5 @@
 #!/bin/sh
-# 
+#
 # NOTE: The Android build of GYP is for Android OS build system.
 # If you want to use in NDK, do some modify:
 #   1. Remove the ".../base_rules.mk" line in none type target that been dependent.
@@ -12,14 +12,19 @@ source ${HERE}/setup_env
 DEFINES=" library=shared_library
           component=static_library
           OS=android
-          platform_root=${ANDROID_HOME}/jni
         "
 
 # Off we go.
 ANDROID_BUILD_TOP=`pwd` GYP_DEFINES=${DEFINES} GYP_GENERATORS=android-make gyp --depth=${ROOT} -I ${GYP_CONFIG}/common.gypi $*
 
 # Rename the library name
-ls ${LIBDIR}/*.target.mk | while read p; do
+Filename=$1
+if [ "$Filename" == "" ]; then
+    Filename="anyfile"
+fi
+Dir=$(dirname $Filename)
+
+ls $Dir/*.target.mk | while read p; do
     f=${p##*/}
     name=${f%%.*}
     echo "Rename '$f'"

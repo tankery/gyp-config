@@ -7,7 +7,6 @@ source ${HERE}/setup_env
 DEFINES=" library=shared_library
           component=static_library
           OS=ios
-          platform_root=${IOS_MAC_HOME}
         "
 
 # Off we go.

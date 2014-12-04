@@ -3,14 +3,17 @@
 HERE=$(dirname $0)
 source ${HERE}/setup_env
 
+Filename=$1
+if [ "$Filename" == "" ]; then
+    Filename="anyfile"
+fi
+Dir=$(dirname $Filename)
+
 # Clean Android generated files
 rm -rf ${ROOT}/GypAndroid.mk
 rm -rf ${ROOT}/*.target.mk
-rm -rf ${ANDROID_HOME}/*.target.mk
+rm -rf ${Dir}/*.target.mk
 
 # Clean iOS & Mac generated files
 rm -rf ${ROOT}/*.xcodeproj
-rm -rf ${IOS_MAC_HOME}/*.xcodeproj
-
-# Clean test generated files
-rm -rf ${TEST_HOME}/*.xcodeproj
+rm -rf ${Dir}/*.xcodeproj
