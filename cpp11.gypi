@@ -14,10 +14,10 @@
 
         'conditions': [
 
+            ['OS=="android"', {
 # TODO:
 # Use GYP to enable c++11 stl support for android.
 # Now, I just enable it in Android's Application.mk by APP_STL.
-#            ['OS=="android"', {
 #                'include_dirs':[
 #                    '<(stl_include_dir)',
 #                ],
@@ -30,7 +30,13 @@
 #                        '-std=c++11',
 #                    ],
 #                },
-#            }], # OS=="android"
+
+                'link_settings': {
+                    'ldflags': [
+                        '-latomic',
+                    ],
+                },
+            }], # OS=="android"
 
             ['OS=="linux" and platform=="darwin"', {
                 'xcode_settings': {
