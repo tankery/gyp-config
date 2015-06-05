@@ -10,6 +10,8 @@
         # names, so define them all here.  (this problem doesn't appear to exist across .gyp files,
         # and it doesn't work to define configurations in globals.gypi).
         'default_configuration': 'Debug',
+        # enable andoird short names (not full path) for linking libraries
+        "android_unmangled_name": 1,
         'configurations': {
             'Debug': {
             },
