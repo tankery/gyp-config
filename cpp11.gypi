@@ -8,7 +8,7 @@
 
     'target_defaults': {
 
-        'cflags': [
+        'cflags_cc': [
             '-std=c++11',
         ],
 
@@ -40,6 +40,7 @@
 
             ['OS=="linux" and platform=="darwin"', {
                 'xcode_settings': {
+                    'CLANG_CXX_LANGUAGE_STANDARD' : 'c++11',
                     'OTHER_CPLUSPLUSFLAGS' : ['-std=c++11','-stdlib=libc++'],
                     'OTHER_LDFLAGS': ['-stdlib=libc++'],
                 },

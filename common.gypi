@@ -23,6 +23,11 @@
             '-Wall', '-Wno-unused-parameter',
         ],
 
+        'cflags_cc': [
+            '-frtti',
+            '-fexceptions',
+        ],
+
         'conditions': [
             ['OS=="android"', {
                 'defines': [
